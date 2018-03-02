@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageSpecialist - Skeeller srl. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:MSP_NotifierTemplate:etc/msp_notifier_templates.xsd">
+
+    <templates>
+        <template id="event:_default"
+                  label="Default template"
+                  file="MSP_NotifierEvent::event/default.twig" />
+
+        <template id="event:backend_auth_user_login_failed"
+                  label="Admin login failed"
+                  file="MSP_NotifierEvent::event/backend_auth_user_login_failed.twig" />
+
+        <template id="event:admin_user_authenticate_after"
+                  label="Admin login"
+                  file="MSP_NotifierEvent::event/admin_user_authenticate_after.twig" />
+
+        <template id="event:controller_action_predispatch_adminhtml_system_config_save"
+                  label="System configuration changed from backend"
+                  file="MSP_NotifierEvent::event/controller_action_predispatch_adminhtml_system_config_save.twig" />
+
+        <template id="event:msp_securitysuite_level_security_alert"
+                  label="Security alert"
+                  file="MSP_NotifierEvent::event/msp_securitysuite_level_security_alert.twig" />
+
+        <template id="event:msp_securitysuite_level_warning"
+                  label="Security warning"
+                  file="MSP_NotifierEvent::event/msp_securitysuite_level_warning.twig" />
+    </templates>
+</config>
