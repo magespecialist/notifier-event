@@ -60,4 +60,38 @@
         <plugin sortOrder="1" name="mSPNotifierManagerInterface"
                 type="MSP\NotifierEvent\Plugin\Event\ManagerInterfacePlugin"/>
     </type>
+
+    <!-- UI components for admin (must be in global area) -->
+
+    <!-- Rule grid: START -->
+    <virtualType name="MSP\NotifierEvent\Ui\DataProvider\RuleFilterPool"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular"
+                      xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext"
+                      xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="msp_notifier_event_rule_data_source"
+                      xsi:type="string">MSP\NotifierEvent\Model\ResourceModel\UI\Rule\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="MSP\NotifierEvent\Model\ResourceModel\UI\Rule\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">msp_notifier_event_rule</argument>
+            <argument name="resourceModel"
+                      xsi:type="string">MSP\NotifierEvent\Model\ResourceModel\Rule\Collection</argument>
+        </arguments>
+    </virtualType>
+    <!-- Rule grid: END -->
 </config>
