@@ -15,7 +15,7 @@ use MSP\NotifierTemplate\Model\TemplateGetter\TemplateGetterInterface;
 
 class AutomaticTemplateId implements AutomaticTemplateIdInterface
 {
-    const DEFAULT_TEMPLATE = 'event:default';
+    const DEFAULT_TEMPLATE = 'event:_default';
 
     /**
      * @var TemplateGetterInterface
