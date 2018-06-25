@@ -47,7 +47,7 @@ class Delete extends Action
 
         try {
             $rule = $this->ruleRepository->get($ruleId);
-            $this->ruleRepository->deleteById($rule->getId());
+            $this->ruleRepository->deleteById((int) $rule->getId());
             $this->messageManager->addSuccessMessage(__('Rule "%1" deleted.', $rule->getName()));
         } catch (\Exception $e) {
             $this->messageManager->addErrorMessage(__('Could not delete rule: %1.', $e->getMessage()));
