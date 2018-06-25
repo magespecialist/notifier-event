@@ -10,7 +10,7 @@
 
     <templates>
         <template id="event:_default"
-                  label="Default template"
+                  label="Default Event Template"
                   file="MSP_NotifierEvent::event/default.twig" />
 
         <template id="event:backend_auth_user_login_failed"

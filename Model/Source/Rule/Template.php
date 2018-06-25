@@ -39,12 +39,12 @@ class Template implements ArrayInterface
 
         $res = [];
         foreach ($templates as $templateId => $template) {
-            if (strpos($templateId, self::TEMPLATE_PREFIX) === 0) {
+//            if (strpos($templateId, self::TEMPLATE_PREFIX) !== 0) {
                 $res[] = [
                     'value' => $templateId,
                     'label' => $template['label'],
                 ];
-            }
+//            }
         }
 
         return $res;
