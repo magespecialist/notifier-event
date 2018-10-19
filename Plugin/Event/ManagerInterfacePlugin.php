@@ -49,11 +49,14 @@ class ManagerInterfacePlugin
         if (!$this->skipCapture) {
             $this->skipCapture = true; // Deadlock protection
             try {
-                // @codingStandardsIgnoreStart
-                // Must use object manager to avoid recursions in event manager plugin
-                $captureEvent = $this->objectManager->get(CaptureEventInterface::class);
-                // @codingStandardsIgnoreEnd
-                $captureEvent->execute($eventName, $data);
+                // Avoid capturing model load after/before (it may result in a complete session failure)
+                if (!preg_match('/_(load|save)_(after|before)$/', $eventName)) {
+                    // @codingStandardsIgnoreStart
+                    // Must use object manager to avoid recursions in event manager plugin
+                    $captureEvent = $this->objectManager->get(CaptureEventInterface::class);
+                    // @codingStandardsIgnoreEnd
+                    $captureEvent->execute($eventName, $data);
+                }
             } catch (\Exception $e) {
 
             }
