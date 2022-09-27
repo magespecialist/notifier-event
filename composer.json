@@ -4,9 +4,9 @@
     "require": {
         "php": "^7.0|^7.1|^7.2|^8.1",
         "magento/magento2-base": "^2.2|^2.3",
-        "msp/module-notifier-event-api": "^0.1",
-        "msp/module-notifier-template-api": "^0.1",
-        "msp/module-notifier": "^0.1"
+        "msp/module-notifier-event-api": "^0",
+        "msp/module-notifier-template-api": "^0",
+        "msp/module-notifier": "^0"
     },
     "suggest": {
         "msp/module-notifier-queue": "Asynchronous messages queue manager for MSP Notifier"
