@@ -11,10 +11,9 @@ namespace MSP\NotifierEvent\Test\Integration\Rule;
 use Magento\TestFramework\Helper\Bootstrap;
 use MSP\NotifierEvent\Model\GetRulesIdsByEventInterface;
 use MSP\NotifierEvent\Model\GetRulesIdsByEventRegistry;
-use MSP\NotifierEvent\Test\Integration\TestCaseWrapper;
 
 /**
- * @magentoDataFixture ../../../../app/code/MSP/NotifierEvent/Test/Integration/Rule/_files/rules.php
+ * @magentoDataFixture MSP_NotifierEvent::Test/Integration/Rule/_files/rules.php
  */
 class GetRulesByEventTest extends \PHPUnit\Framework\TestCase
 {
@@ -31,7 +30,7 @@ class GetRulesByEventTest extends \PHPUnit\Framework\TestCase
     /**
      * @inheritdoc
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         // @codingStandardsIgnoreStart
         $this->getRuleIdsByEvent = Bootstrap::getObjectManager()->get(GetRulesIdsByEventInterface::class);

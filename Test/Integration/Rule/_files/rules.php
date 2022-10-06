@@ -41,7 +41,7 @@ $channel->setData([
     \MSP\NotifierApi\Api\Data\ChannelInterface::NAME => 'Test',
     \MSP\NotifierApi\Api\Data\ChannelInterface::CODE => 'test',
     \MSP\NotifierApi\Api\Data\ChannelInterface::ADAPTER_CODE => 'telegram',
-    \MSP\NotifierApi\Api\Data\ChannelInterface::CONFIGURATION_JSON => $serializer->serialize([]),
+    \MSP\NotifierApi\Api\Data\ChannelInterface::CONFIGURATION_JSON => $serializer->serialize(['chat_id' => '123', 'token' => '123']),
 ]);
 
 $channelId = $channelRepository->save($channel);
@@ -61,7 +61,7 @@ foreach ($testRules as $testRule) {
         \MSP\NotifierEventApi\Api\Data\RuleInterface::ENABLED => $testRule[0],
         \MSP\NotifierEventApi\Api\Data\RuleInterface::CHANNELS_CODES => $serializer->serialize(['test']),
         \MSP\NotifierEventApi\Api\Data\RuleInterface::NAME => 'Test rule',
-        \MSP\NotifierEventApi\Api\Data\RuleInterface::TEMPLATE_ID => 'default',
+        \MSP\NotifierEventApi\Api\Data\RuleInterface::TEMPLATE_ID => '_default',
         \MSP\NotifierEventApi\Api\Data\RuleInterface::THROTTLE_INTERVAL => 3600,
         \MSP\NotifierEventApi\Api\Data\RuleInterface::THROTTLE_LIMIT => 60,
         \MSP\NotifierEventApi\Api\Data\RuleInterface::FIRE_COUNT => 0,
